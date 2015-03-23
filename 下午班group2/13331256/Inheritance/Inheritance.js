@@ -28,14 +28,14 @@ Base.staticMethod = function() {
 function Derived(name) {
 	this.instanceVariable = name;
 	this.instanceMethod = function() {
-		(new this.prototype.constructor(this.instanceVariable)).instanceMethod();
+		(new this.prototype.constructor(this.instanceVariable)).instanceMethod.apply(this);
 		document.write("This is from Derived class instance-method, instance-variable is: " + this.instanceVariable + "<br>");
 	}
 }
 Derived.staticVariable = 'Derived';
 Derived.staticMethod = function() {
 	if (this.prototype.staticMethod !== undefined)
-		this.prototype.staticMethod();
+		this.prototype.staticMethod.apply(this);
 	document.write("This is from Derived class static-method, static-variacle is: " + this.staticVariable + "<br>");
 }
 
