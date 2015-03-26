@@ -116,7 +116,7 @@ function getcmp(k) { // 比较函数
 
 function makeFilterable(table) {
     var filterRow = document.createElement("input");
-    filterRow.addEventListener('keyup', toFilter)
+    filterRow.addEventListener('input', toFilter)
     filterRow.placeholder = "to filter";
     table.appendChild(filterRow);
     return table;
